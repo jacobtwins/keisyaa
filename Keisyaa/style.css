@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Comfortaa", sans-serif;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Mengurangi ukuran font untuk mobile */
+    }
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ff879f !important; /* Warna latar belakang lembut */
+    background-image: repeating-linear-gradient(
+        45deg, 
+        transparent 0%, 
+        transparent 25%, 
+        rgba(255, 255, 255, 0.5) 25%, 
+        rgba(255, 255, 255, 0.5) 50%
+    ), 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="red"><text x="10" y="40" font-size="40">&#x1F49C;</text></svg>'); /* Ganti dengan emoji yang diinginkan */
+    background-size: 200px 200px; /* Mengatur ukuran latar belakang */
+    background-repeat: repeat; /* Mengulangi gambar latar belakang */
+}
+
+
+
+/* Container utama untuk foto dan input PIN */
+.main-container {
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak */
+    align-items: center; /* Menjaga agar konten di dalam kontainer sejajar secara vertikal */
+    gap: 0px; /* Jarak antara kontainer */
+    padding: 40px;
+    background-color: #f4de3bf7; /* Warna pink lembut untuk main container */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.photo-container {
+    width: 200px; /* Lebar tetap untuk container */
+    height: 200px; /* Tinggi tetap untuk container */
+    perspective: 1000px; /* Menambahkan perspektif untuk efek 3D */
+    border: 5px solid #333; /* Border lebih tebal */
+    border-radius: 50%; /* Membuat border bulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Memberikan bayangan untuk efek 3D */
+    overflow: hidden; /* Memastikan gambar tetap berada di dalam lingkaran */
+    margin-left: 30px;
+}
+
+
+.flip-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer; /* Mengubah kursor saat melayang di atas gambar */
+}
+.flip-card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s; /* Durasi transisi flip */
+    transform-style: preserve-3d; /* Memungkinkan efek 3D */
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Menyembunyikan sisi belakang saat tidak terlihat */
+}
+
+.flip-card-front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg); /* Memutar sisi belakang 180 derajat */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsif untuk gambar */
+.flip-card-front img, .flip-card-back img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; /* Memastikan gambar memenuhi container */
+}
+
+/* Kontainer untuk input PIN dan tombol angka */
+.pin-container {
+    display: flex;
+    flex-direction: column; /* Mengatur elemen di dalamnya secara vertikal */
+    align-items: center; /* Memusatkan konten secara horizontal */
+    text-align: center; /* Memusatkan teks */
+}
+
+h2 {
+    margin: 0; /* Menghilangkan margin untuk menjaga keselarasan */
+    margin-bottom: 20px; /* Jarak di bawah judul */
+    margin-left: 50px;
+    color: #333;
+    line-height: 1; /* Sesuaikan line-height agar lebih rapi */
+    font-size: 24px; /* Ukuran font judul */
+    display: flex; /* Mengubah elemen menjadi flex */
+    justify-content: center; /* Memastikan teks di tengah secara horizontal */
+}
+
+.pin-container {
+    display: flex;
+    flex-direction: column; /* Menjaga urutan dari atas ke bawah */
+    align-items: center; /* Memusatkan konten secara horizontal */
+    flex: 1; /* Agar kontainer PIN dapat tumbuh untuk mengisi ruang yang tersedia */
+}
+
+.input-container {
+    display: flex; /* Menggunakan flexbox untuk menyelaraskan elemen */
+    flex-direction: column; /* Menjaga urutan dari atas ke bawah */
+    align-items: center; /* Memusatkan konten secara horizontal */
+}
+
+/* Pastikan pin-display dan num-pad memiliki tinggi yang sama */
+.pin-display {
+    width: 155%;
+    max-width: 200px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #fffDD0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto 10px;
+    color: #333;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.num-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.num-pad button {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff7b9c, #ff4081); /* Gradasi warna */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow untuk memberikan efek 3D */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.num-pad button:hover {
+    transform: translateY(-3px); /* Efek hover dengan sedikit naik */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Shadow lebih besar saat hover */
+    background: linear-gradient(135deg, #ff4081, #ff7b9c); /* Inversi gradasi warna saat hover */
+}
+
+.num-pad button:active {
+    transform: translateY(1px); /* Efek saat tombol ditekan */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.num-pad button.clear, .num-pad button.submit {
+    width: 100%;
+    font-size: 16px;
+    background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+}
+
+.num-pad button.clear:hover, .num-pad button.submit:hover {
+    background: linear-gradient(135deg, #ab47bc, #6a1b9a);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffe6e6;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
+    width: 80%;
+    text-align: center;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+}

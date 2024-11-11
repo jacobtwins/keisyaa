@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi dulu yaa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="photo/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<div class="main-container">
+    <div class="photo-container">
+        <div class="flip-card" onclick="flipPhoto()">
+            <div class="flip-card-inner" id="flipCardInner">
+                <div class="flip-card-front">
+                    <img src="photo/index.jpg" alt="Foto Profil">
+                </div>
+                <div class="flip-card-back">
+                    <img src="photo\IMG-20241104-WA0005.jpg" alt="Foto Kedua">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pin-container">
+        <h2>PIN nya sayaangg ❤‍🔥</h2>
+        <div class="input-container">
+            <div class="pin-display" id="pinDisplay">******</div>
+            <div class="num-pad">
+                <button onclick="enterPin(1)">1</button>
+                <button onclick="enterPin(2)">2</button>
+                <button onclick="enterPin(3)">3</button>
+                <button onclick="enterPin(4)">4</button>
+                <button onclick="enterPin(5)">5</button>
+                <button onclick="enterPin(6)">6</button>
+                <button onclick="enterPin(7)">7</button>
+                <button onclick="enterPin(8)">8</button>
+                <button onclick="enterPin(9)">9</button>
+                <button onclick="clearPin()">Del</button>
+                <button onclick="enterPin(0)">0</button>
+                <button onclick="submitPin()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script.js"></script>
+</script>
+</body>
+</html>

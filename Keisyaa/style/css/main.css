@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Comfortaa", sans-serif;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Mengurangi ukuran font untuk mobile */
+    }
+}
+
+html body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ff879f !important; /* Warna latar belakang lembut */
+    background-image: repeating-linear-gradient(
+        45deg, 
+        transparent 0%, 
+        transparent 25%, 
+        rgba(255, 255, 255, 0.5) 25%, 
+        rgba(255, 255, 255, 0.5) 50%
+    ), 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="red"><text x="10" y="40" font-size="40">&#x1F49C;</text></svg>') !important;
+    background-size: 200px 200px !important;
+    background-repeat: repeat !important;
+}
+
+
+.custom-container {
+    background-color: #f056bf; /* Warna pink soft untuk kontainer utama */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+.container {
+    position: fixed;
+    z-index: 1; /* Agar tetap di belakang SweetAlert */
+   
+}
+
+.btn-custom {
+    background-color: #FFD700!important; /* Warna emas */
+    color: black; /* Warna teks hitam untuk kontras */
+    border: none; /* Menghilangkan border default */
+    border-radius: 30px; /* Sudut bulat */
+    padding: 10px 20px; /* Ruang di dalam tombol */
+    font-size: 16px; /* Ukuran font */
+    transition: all 0.9s ease;
+}
+
+.btn-custom:hover {
+    background-color: #7dfb16 !important; /* Warna saat hover, sedikit lebih gelap */
+    transform: translateY(-3px); /* Efek mengangkat saat hover */
+}
+

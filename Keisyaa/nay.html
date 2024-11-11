@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulang Tahun Nayla 🎉</title>
+    <link rel="stylesheet" href="style\css\nay.css">
+    <link rel="icon" href="photo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<script>
+    const sentences = [
+        "Namanya Nayla Keisya, dia sedang berulang tahun hari ini.",
+        "Selamat bertambah umur, Sayang. Tentu saja, segala doa baik akan selalu untukmu.",
+        "Kamis 11 November 2004, Dia lahir. Anak dari Bapak Isni Bahagia dan Ibu Yusranidar.",
+        "Dia memiliki paras yang cantik, tidak sulit untuk menandainya. Lihat saja yang paling cantik.",
+        "Suka menutupi segala sesuatu sudah melekat pada dirinya.",
+        "Sifatnya yang keras hanya untuk menyembunyikan hatinya yang sendu.",
+        "Sikapnya yang aktif juga hanya untuk menutupi kesepian.",
+        "Dia juga rentan sakit, pusing dan lemas sepertinya sudah menjadi rutinitasnya.",
+        "Untuk itu aku sudah menyiapkan nomor BPJS-nya 0000170307033.",
+        "Sejauh ini dia belum pernah menyadari betapa istimewanya dirinya.",
+        "Dia memiliki banyak kelebihan, salah satunya adalah mudah untuk beradaptasi.",
+        "Tanpa dia sadari, dia bisa menyesuaikan dirinya di segala situasi.",
+        "Walaupun terkadang masih melakukan hal yang tidak perlu.",
+        "Dengan kemandiriannya, dia mampu menjalani segala rintangan, walaupun dengan sedikit tangisan.",
+        "Itulah sedikit tentangnya, perempuan yang membuatku kagum dengan pesona-nya.",
+        "Semoga hal baik selalu bersamanya, aku contohnya 😁. Amiiinn."
+    ];
+
+    function showSweetAlert() {
+        Swal.fire({
+            title: "Ulang Tahun Nayla 🎉",
+            html: "<div id='alertTypingText'></div>",
+            width: 600,
+            padding: "2em",
+           
+           
+           
+            showConfirmButton: false,
+            confirmButtonText: "Kembali",
+            didOpen: () => typeAlertSentences()
+        }).then(() => window.history.back());
+    }
+
+    function typeAlertSentences() {
+        const alertTypingTextElement = document.getElementById("alertTypingText");
+        let alertSentenceIndex = 0;
+        let alertCharIndex = 0;
+        let typingDelay = 100;
+
+        function typeAlertSentence() {
+            alertTypingTextElement.textContent = sentences[alertSentenceIndex].substring(0, alertCharIndex + 1);
+            const currentChar = sentences[alertSentenceIndex][alertCharIndex];
+            alertCharIndex++;
+
+            if (currentChar === ',' || currentChar === '.') {
+                typingDelay = 500;
+            } else {
+                typingDelay = 100;
+            }
+
+            if (alertCharIndex === sentences[alertSentenceIndex].length) {
+                alertCharIndex = 0;
+                alertSentenceIndex++;
+
+                if (alertSentenceIndex === sentences.length) return;
+                setTimeout(typeAlertSentence, 1500);
+            } else {
+                setTimeout(typeAlertSentence, typingDelay);
+            }
+        }
+
+        typeAlertSentence();
+    }
+
+    // Tampilkan SweetAlert saat halaman dimuat
+    window.onload = showSweetAlert;
+</script>
+
+</body>
+</html>
